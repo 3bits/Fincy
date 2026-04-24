@@ -74,14 +74,20 @@ export function Budgets() {
     setIsOpen(true);
   };
 
+  const handleDialogOpenChange = (open: boolean) => {
+    if (!open) {
+      setFormData({
+        category: '',
+        limit: '',
+        period: 'monthly',
+      });
+      setEditingBudget(null);
+    }
+    setIsOpen(open);
+  };
+
   const handleClose = () => {
-    setFormData({
-      category: '',
-      limit: '',
-      period: 'monthly',
-    });
-    setEditingBudget(null);
-    setIsOpen(false);
+    handleDialogOpenChange(false);
   };
 
   return (
@@ -91,7 +97,7 @@ export function Budgets() {
           <h2 className="text-3xl font-semibold text-gray-900 dark:text-white">Budgets</h2>
           <p className="text-gray-600 dark:text-gray-400 mt-1">Set and track your spending limits</p>
         </div>
-        <Dialog open={isOpen} onOpenChange={handleClose}>
+        <Dialog open={isOpen} onOpenChange={handleDialogOpenChange}>
           <DialogTrigger asChild>
             <Button className="flex items-center gap-2">
               <Plus className="w-4 h-4" />
