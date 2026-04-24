@@ -1,0 +1,15 @@
+services:
+  # Backend Web Service (Spring Boot)
+  - type: web
+    name: fincy-backend
+    runtime: docker
+    dockerfilePath: ./Backend/Dockerfile
+    dockerContext: ./Backend
+    envVars:
+      - key: SPRING_DATA_MONGODB_URI
+        sync: false  # You will set this in Render dashboard
+      - key: SERVER_PORT
+        value: 8081
+    healthCheckPath: /
+
+  # MongoDB can be added via Render's managed MongoDB or use MongoDB Atlas (free)
