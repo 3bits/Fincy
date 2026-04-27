@@ -8,7 +8,7 @@ services:
     envVars:
       - key: SPRING_DATA_MONGODB_URI
         sync: false  # You will set this in Render dashboard
-      - key: SERVER_PORT
+      - key: PORT
         value: 8081
     healthCheckPath: /
 

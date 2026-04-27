@@ -11,7 +11,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/budgets")
-@CrossOrigin(origins = {"http://localhost:5173", "http://localhost:5174"})
 public class BudgetController {
 
     private final BudgetRepository budgetRepository;
