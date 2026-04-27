@@ -10,6 +10,6 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/finance-tracker-backend-1.0.0.jar app.jar
-ENV PORT=8081
-EXPOSE ${PORT}
+ENV PORT=10000
+EXPOSE 10000
 ENTRYPOINT ["java", "-jar", "app.jar"]
